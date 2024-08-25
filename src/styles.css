@@ -1,0 +1,150 @@
+body {
+    --bg-dark-grey: rgb(28, 28, 28);
+    --white-accent: rgb(219, 219, 219);
+    --red-accent: rgb(255, 40, 40);
+    --green-accent: rgb(3, 172, 3);
+    --border-radius: 6px;
+    background-color: var(--bg-dark-grey);
+}
+
+.container {
+    --v-padding: 2rem;
+    --h-padding: 3rem;
+
+    display: flex;
+    flex-direction: vertical;
+    padding: var(--v-padding) var(--h-padding);
+    margin: auto;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.full-screen {
+    width: calc(100vw - 2 * var(--h-padding));
+    height: calc(100vh - 2 * var(--v-padding));
+}
+
+.wide {
+    width: calc(100vw - 2 * var(--h-padding));
+}
+
+.text-white {
+    text-decoration: none;
+    color: var(--white-accent);
+}
+
+.text-red {
+    text-decoration: none;
+    color: var(--red-accent);
+}
+
+.text-green {
+    text-decoration: none;
+    color: var(--green-accent);
+}
+
+.bg-dark-grey {
+    background-color: var(--bg-dark-grey);
+}
+
+.form {
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+}
+
+.switch-view-button {
+    width: 12rem;
+    height: 3rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.leave-button {
+    width: 5rem;
+    height: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    position: absolute;
+    top: var(--v-padding);
+    right: calc(100vw - var(--h-padding) - 5rem);
+}
+
+.center {
+    justify-content: center;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.form-break {
+    flex-basis: 100%;
+    height: 1rem;
+}
+
+.top-padding {
+    padding-top: 2rem;
+}
+
+.chat-log {
+    align-items: left;
+    padding-top: 2rem;
+    height: 40vh;
+    overflow: auto;
+}
+
+.submit-button {
+    width: 6rem;
+    height: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: var(--border-radius);
+}
+
+.bg-button {
+    background-color: var(--bg-dark-grey);
+    border: 2px solid var(--white-accent);
+    color: var(--white-accent);
+    transition-duration: 0.4s;
+}
+
+.bg-button:hover {
+    color: var(--bg-dark-grey);
+    background-color: var(--white-accent);
+}
+
+.bg-text {
+    background-color: var(--bg-dark-grey);
+    color: var(--white-accent);
+    border: 2px solid var(--white-accent);
+}
+
+.form-text {
+    width: 16rem;
+    height: 2.5rem;
+    text-align: left;
+    border-radius: var(--border-radius);
+    margin: auto;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.smaller-gaps {
+    height: 3rem;
+    margin-top: -2rem;
+    margin-bottom: -2rem;
+}
+
+.smallest-gaps {
+    margin-bottom: -10rem;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1)
+}
