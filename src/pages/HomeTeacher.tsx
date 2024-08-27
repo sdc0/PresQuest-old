@@ -2,17 +2,19 @@ import { invoke } from "@tauri-apps/api";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-import { classExists, activateClass, pushClass, getClass, getAuthState } from "../firebaseHelper";
+import { classExists, activateClass, pushClass, getClass, getAuthState, logout } from "../firebaseHelper";
 import "../styles.css";
 
 const HomeTeacher = () => {
     const navigate = useNavigate();
 
     function switchView() {
+        logout();
         navigate("/");
     }
 
     useEffect(() => {
+        console.log(getAuthState());
         if (getAuthState() == null) navigate("/login");
     }, []);
 
@@ -30,6 +32,7 @@ const HomeTeacher = () => {
         }else {
             if (!await classExists(event.target.code.value, new Date(event.target.date.value))) {
                 class_key = await pushClass(event.target.code.value, new Date(event.target.date.value));
+                console.log(class_key);
             }else { return };
         }
         
@@ -41,27 +44,31 @@ const HomeTeacher = () => {
     }
 
     return (
-    <div className="container center full-screen bg-dark-grey">
-        <h1 className="text-white">Welcome to PresQuest!</h1>
-        <h1 className="text-white">Enter a Name and Date to Begin Class</h1>
-        <div className="break" />
+    <div className="container">
+        <div className="wide center-text">
+            <h1 className="text-white">Welcome to PresQuest!</h1>
+            <h1 className="text-white">Enter a Name and Date to Begin Class</h1>
+        </div>
 
-        <form onSubmit={submit} className="form">
-            <input type="text" name="code" placeholder="Enter a class code..." className="form-text bg-text" />
-            <div className="form-break" />
+        <div className="center-text wide">
+            <form onSubmit={submit} className="form">
+                <input type="text" name="code" placeholder="Enter a class code..." className="form-text bg-text" />
+                <div className="form-break" />
 
-            <input type="datetime-local" name="date" className="form-text bg-text" />
-            <div className="form-break" />
+                <input type="datetime-local" name="date" className="form-text bg-text" />
+                <div className="form-break" />
 
-            <span className="text-white">Activate Existing Class?</span>
-            <input type="checkbox" name="active" />
-            <div className="form-break" />
+                <span className="text-white">Activate Existing Class?</span>
+                <input type="checkbox" name="active" />
+                <div className="form-break" />
 
-            <button type="submit" className="submit-button bg-button">Start Class</button>
-        </form>
-
-        <div className="break" />
-        <button onClick={switchView} className="switch-view-button bg-button">Switch to Student</button>
+                <button type="submit" className="submit-button bg-button">Start Class</button>
+            </form>
+            
+            <div className="wide top-padding">
+                <button onClick={switchView} className="switch-view-button bg-button">Switch to Student</button>
+            </div>
+        </div>
     </div>
     );
 }

@@ -121,8 +121,8 @@ export function getAuthState(): (User | null) {
 }
 
 export async function login(email: string, password: string): Promise<Boolean> {
-    return signInWithEmailAndPassword(auth, email, password).then((user) => {
-        console.log("got user");
+    return signInWithEmailAndPassword(auth, email, password).then(() => {
+        console.log("Logged in user successfully");
         return true;
     }).catch((error) => {
         console.log("Failed to log in user with error: ", error);

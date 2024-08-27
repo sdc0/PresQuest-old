@@ -24,11 +24,12 @@ const HomeStudent = () => {
     }
 
     return (
-    <div className="container full-screen center bg-dark-grey">
-        <h1 className="text-white smallest-gaps">Enter a Class Code and Name to Join</h1>
+    <div className="container">
+        <div className="center-text wide">
+            <h1 className="text-white center-text">Enter a Class Code and Name to Join</h1>
+        </div>
 
-        <div className="break" />
-        <form onSubmit={handleClick} className="form smaller-gaps">
+        <form onSubmit={handleClick} className="form center-text wide">
             <input type="text" name="code" placeholder="Enter a class ID..." className="form-text bg-text"></input>
             <div className="form-break" />
             <input type="text" name="username" placeholder="Enter your name..." className="form-text bg-text"></input>
@@ -36,7 +37,6 @@ const HomeStudent = () => {
             <button type="submit" className="submit-button bg-button">Submit</button>
         </form>
 
-        <div className="break" />
         <button onClick={switchView} className="switch-view-button bg-button">Switch to Teacher</button>
     </div>
     );

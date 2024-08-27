@@ -16,31 +16,34 @@ const ClassStudent = () => {
             await invoke("get_user"),
             event.target.message.value
         ));
+        setTimeout(() => {
+            setSuccess(null);
+        }, 2000)
     }
 
     return (
-    <div className="container center full-screen bg-dark-grey">
+    <div className="container">
         <button onClick={async () => {
             await invoke("set_class", { classString: "" });
             await invoke("set_user", { userString: "" });
             navigate("/");
         }} className="bg-button leave-button">Leave</button>
 
-        <div className="break" />
+        <div className="center-text wide top-padding">
+            <h1 className="text-white">Welcome to Class</h1>
+            <h1 className="text-white">Enter a Message Below</h1>
+        </div>
 
-        <h1 className="text-white center-text wide smaller-gaps smallest-gaps">Welcome to Class</h1>
-
-        <h1 className="text-white center-text wide smaller-gaps smallest-gaps">Enter a Message Below</h1>
-
-        <form onSubmit={sendMessage} className="form wide smaller-gaps">
+        <form onSubmit={sendMessage} className="form wide">
             <input type="text" name="message" placeholder="Enter a message..." className="bg-text form-text"></input>
             <div className="form-break" />
             <button type="submit" className="bg-button submit-button">Submit</button>
         </form>
 
-        {success && <p className="text-green smaller-gaps">Message sent successfully</p>}
-        {(success == false) && <p className="text-red smaller-gaps">Message failed to send, try again</p>}
-        
+        <div className="center-text wide top-padding">
+            {success && <p className="text-green smaller-gaps">Message sent successfully</p>}
+            {(success == false) && <p className="text-red smaller-gaps">Message failed to send, try again</p>}
+        </div>
     </div>
     );
 };
