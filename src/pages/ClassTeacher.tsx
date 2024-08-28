@@ -26,8 +26,8 @@ const ClassTeacher = () => {
                 let q: [] = [];
 
                 for (let k in msgs) {
-                    q.push(msgs[k]["message"]);
-                };
+                    q.unshift(msgs[k]["message"]);
+                }
 
                 setMessages(q);
             });

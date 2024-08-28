@@ -98,6 +98,8 @@ body {
     padding-top: 2rem;
     height: 40vh;
     overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .submit-button {
