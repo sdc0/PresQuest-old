@@ -11,8 +11,8 @@ Make sure you have a recent version of [NodeJS](https://nodejs.org/en) installed
 ### Clone the Repository
 
 ```bash
-git clone git@github.com:sdc0/PresQuest.git
-cd PresQuest
+git clone git@github.com:sdc0/PresQuest-old.git
+cd PresQuest-old
 npm install
 ```
 
